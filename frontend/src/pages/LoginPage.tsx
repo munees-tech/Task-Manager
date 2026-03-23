@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/user.store";
+import {useNavigate} from "react-router-dom"
 
 const LoginPage = () => {
 
@@ -8,11 +9,17 @@ const LoginPage = () => {
     password:""
   });
 
+  const navigate = useNavigate()
+
   const {login, isLogin} = useAuthStore() as any
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    login(formData)
+    const success = await login(formData);
+
+    if(success) {
+      navigate("/")
+    }
   }
 
   return (
