@@ -11,8 +11,8 @@ export const gendreateToken = async (userId:any , res:Response) => {
         }
         res.cookie("jwt" , token ,{
             maxAge:7 * 60 * 60 * 1000,
-            sameSite : "none",
             httpOnly:true,
+            sameSite : "none",
             secure:true
         });
     } catch (error) {
