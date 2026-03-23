@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(PORT, async () => {
+app.listen(PORT || 5000, async () => {
   console.log(`server is running on ${PORT}`);
   db();
 });

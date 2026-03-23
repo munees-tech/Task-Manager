@@ -4,7 +4,8 @@ import { gendreateToken } from "../utils/gendreate.token";
 import bcrypt from "bcrypt";
 
 interface AuthRequest extends Request {
-  user?: any;
+  user?: any,
+  body:any
 }
 
 export const signupController = async (req: Request, res: Response) => {
