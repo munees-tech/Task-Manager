@@ -5,7 +5,8 @@ import bcrypt from "bcrypt";
 
 interface AuthRequest extends Request {
   user?: any,
-  body:any
+  body:any,
+  cookies:any
 }
 
 export const signupController = async (req: Request, res: Response) => {
