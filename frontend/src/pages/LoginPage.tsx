@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/user.store";
-import {useNavigate} from "react-router-dom"
 
 const LoginPage = () => {
 
@@ -8,8 +7,6 @@ const LoginPage = () => {
     email:"",
     password:""
   });
-
-  const navigate = useNavigate()
 
   const {login, isLogin} = useAuthStore() as any
 
