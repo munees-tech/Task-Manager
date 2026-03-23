@@ -5,7 +5,8 @@ import mongoose from "mongoose";
 
 interface AuthRequest extends Request {
   user?: any,
-  body:any
+  body:any,
+  cookies:any
 }
 
 export const postTaskController = async (req: AuthRequest, res: Response) => {

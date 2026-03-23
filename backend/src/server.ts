@@ -16,7 +16,7 @@ app.use(
     credentials: true,
   }),
 );
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cookieParser());
@@ -26,18 +26,7 @@ app.use("/", userRoute);
 app.use("/post", taskRoute);
 
 
-
-
-if (process.env.NODE_ENV === "production") {
-  const __dirname = path.resolve();
-  console.log(__dirname)
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist/assets", "index.html"));
-  });
-}
-
-app.listen(PORT || 5000, async () => {
+app.listen(PORT, async () => {
   console.log(`server is running on ${PORT}`);
   db();
 });
