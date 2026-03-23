@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "",
+    origin: "taskmanager27052006.netlify.app",
     credentials: true,
   }),
 );
