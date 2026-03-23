@@ -12,11 +12,7 @@ const LoginPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const success = await login(formData);
-
-    if(success) {
-      navigate("/")
-    }
+    login(formData)
   }
 
   return (
