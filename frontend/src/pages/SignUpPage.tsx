@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/user.store";
-import {useNavigate} from "react-router-dom"
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -9,17 +8,11 @@ const SignUpPage = () => {
     password: "",
   });
 
-  const navigate = useNavigate()
-
   const { signup } = useAuthStore() as any;
 
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-     const success = await signup(formData);
-
-    if(success) {
-      navigate("/")
-    }
+     signup(formData);
   };
 
   return (
